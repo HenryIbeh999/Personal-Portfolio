@@ -22,7 +22,11 @@ def home():
 
 def get_projects():
     try:
-        response = requests.get(STRAPI_URL)
+        
+        headers = {
+            "Authorization": f"Bearer {os.getenv("STRAPI_API_TOKEN")}"
+        }
+        response = requests.get(STRAPI_URL, headers=headers, timeout=10)
         response.raise_for_status()
         projects = response.json().get('data', [])
         
@@ -88,4 +92,4 @@ def contact():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
