@@ -135,6 +135,12 @@ body {
     box-shadow: var(--shadow-primary);
 }
 
+a.btn-cta {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 /* Profile Image */
 .profile-image-container {
     width: 300px;

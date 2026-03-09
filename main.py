@@ -29,7 +29,6 @@ def get_projects():
         response.raise_for_status()
         projects = response.json().get('data', [])
         
-        print(f"DEBUG: Fetched {len(projects)} project(s)")
         if projects and projects[0].get('thumbnail'):
             print(f"DEBUG: First project has {len(projects[0]['thumbnail'])} thumbnail(s)")
         
@@ -73,7 +72,6 @@ def contact():
                     to_addrs=os.getenv("TO_EMAIL"),
                     msg=msg.as_string()
                 )
-            print("Email sent successfully!")
             flash("Message sent successfully!", "success")
             return redirect(url_for('home'))
         except Exception as e:

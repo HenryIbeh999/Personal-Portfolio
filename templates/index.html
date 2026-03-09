@@ -10,9 +10,10 @@
                 <p class="hero-subtitle mb-4">
                     Software Engineering undergrad passionate about systems, apps, scripting and games.
                 </p>
-                <button class="btn btn-success btn-lg btn-cta">
+                <a href="{{ url_for('contact') }}" class="btn btn-success btn-lg btn-cta">
                     Contact me<span class="ms-2">›</span>
-                </button>
+                </a>
+
             </div>
 
             <!-- Right Profile Image -->
@@ -55,7 +56,7 @@
                     <span>HTML</span>
                 </div>
             </div>
-            
+
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                 <div class="company-logo-box">
                     <i class="fa-brands fa-css3-alt"></i>
@@ -113,4 +114,5 @@
     crossorigin="anonymous"></script>
 </body>
 {% include 'footer.html' %}
+
 </html>
