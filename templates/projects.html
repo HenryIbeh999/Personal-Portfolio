@@ -40,7 +40,15 @@
                             <div class="carousel-wrapper">
                                 {% for image in project.thumbnail %}
                                 <div class="carousel-item" data-slide="{% if loop.first %}0{% else %}{{ loop.index0 }}{% endif %}">
-                                    <img src="{{ image.url }}" alt="Project image" class="carousel-image">
+                                    {% if image.formats and image.formats.large %}
+                                        <img src="{{ image.formats.large.url }}" alt="Project image" class="carousel-image">
+                                    {% elif image.formats and image.formats.medium %}
+                                        <img src="{{ image.formats.medium.url }}" alt="Project image" class="carousel-image">
+                                    {% elif image.formats and image.formats.small %}
+                                        <img src="{{ image.formats.small.url }}" alt="Project image" class="carousel-image">
+                                    {% else %}
+                                        <img src="{{ image.url }}" alt="Project image" class="carousel-image">
+                                    {% endif %}
                                 </div>
                                 {% endfor %}
                                 
